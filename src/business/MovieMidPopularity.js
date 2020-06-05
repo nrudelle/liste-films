@@ -57,25 +57,18 @@ class MovieMidPopularity extends React.Component {
       .then(res => res.json())
       .then(
           (result) => {
-              console.log(result);
-
               movieInfos = result.results.slice(10, 20);
 
-              console.log("movieInfos : ");
-              console.log(movieInfos);
 
               fetch(this.imdbApiBaseUrl+"/discover/movie?api_key="+this.imdbApiKey+"&language="+this.language+"&sort_by=popularity.desc&include_adult=false&include_video=false&page=2")
                 .then(res => res.json())
                 .then(
                     (result) => {
-                        console.log(result);
 
                         result.results.map(movie => {
                           movieInfos.push(movie);
                         });
 
-                        console.log("movieInfos : ");
-                        console.log(movieInfos);
 
                         this.setState({
                           isLoaded:true,

@@ -31,7 +31,6 @@ class MovieDisplay extends React.Component {
   }
 
   componentDidMount() {
-    console.log("allo ?");
     fetch(this.imdbApiBaseUrl+"/movie/"+this.props.movieId+"?api_key="+this.imdbApiKey+"&language="+this.language)
         .then(res => res.json())
         .then(

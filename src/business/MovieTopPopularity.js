@@ -48,17 +48,11 @@ class MovieTopPopularity extends React.Component {
   }
 
   componentDidMount() {
-    console.log("allo ?");
     fetch(this.imdbApiBaseUrl+"/discover/movie?api_key="+this.imdbApiKey+"&language="+this.language+"&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
       .then(res => res.json())
       .then(
           (result) => {
-              console.log(result);
-
               var movieInfos = result.results.slice(0, this.nbMovies);
-
-              console.log("movieInfos : ");
-              console.log(movieInfos);
 
               this.setState({
                 isLoaded:true,

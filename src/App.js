@@ -43,12 +43,10 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    console.log("allo ?");
     fetch(this.imdbApiBaseUrl+"/configuration?api_key="+this.imdbApiKey)
       .then(res => res.json())
       .then(
           (result) => {
-              console.log(result);
               this.setState({
                 isLoaded:true,
                 imdbConf: result
